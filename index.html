@@ -4,19 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thổi nến ở đây</title>
-    <link rel="icon" type="image/x-icon" href="./birthdayCake.png">
+    <link rel="icon" type="image/x-icon" href="./birthdayCake.png" />
     <link rel="manifest" href="./site.webmanifest" />
     <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-
-    <meta name="apple-mobile-web-app-status-bar-style" 
-      content="dark-content">
+    <meta name="apple-mobile-web-app-status-bar-style" content="dark-content" />
     <script type="module" crossorigin src="./assets/index-2lIHQj8D.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/react-BXn1aEkb.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-zWxIKS94.css">
+    <link rel="modulepreload" crossorigin href="./assets/react-BXn1aEkb.js" />
+    <link rel="stylesheet" crossorigin href="./assets/index-zWxIKS94.css" />
+
+    <style>
+      .popup {
+        position: fixed;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        border-radius: 8px;
+        text-align: center;
+        display: none;
+        width: 80%;
+        max-width: 400px;
+      }
+      .popup.active {
+        display: block;
+      }
+      @media (max-width: 404px) {
+        .popup {
+          padding: 15px;
+          top: 89%;
+        }
+      }
+       @media (max-width: 356px) {
+        .popup {
+          top: 73%;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div id="alert-popup" class="popup">
+      &#128640; Nhớ cấp quyền cho phép truy cập micro để thổi nến nhé!
+    </div>
+
+    <script>
+      function showAlertPopup() {
+        const popup = document.getElementById('alert-popup');
+        popup.classList.add('active');
+        setTimeout(() => {
+          popup.classList.remove('active');
+        }, 3500);
+      }
+
+      window.onload = showAlertPopup;
+    </script>
   </body>
 </html>
